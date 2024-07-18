@@ -4,15 +4,299 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
   <title>Portfolio | Francisco Rangel</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *, ::after, ::before {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      height: 100%;
+      width: 100%;
+    }
+
+    .presentation-container {
+      height: 100vh;
+      background-color: #262931da;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .container-image img {
+      width: 200px;
+      margin-bottom: 30px;
+    }
+
+    .main-info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .info p {
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    #media-links {
+      margin-top: 30px;
+    }
+
+    #media-links a {
+      font-size: 15px;
+      color: #fff2ff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    #media-links a:hover {
+      color: #3ab87d;
+      transition: 3ms ease-in;
+    }
+
+    .navbar {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #d4dada;
+      width: 100%;
+      padding: 17px;
+      backdrop-filter: blur(5px);
+      background-color: #262931da;
+      z-index: 1000;
+    }
+
+    .navbar-title {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .navbar-title span {
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .menu-group {
+      display: flex;
+    }
+
+    .menu-item {
+      color: #d4dada;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 15px;
+    }
+
+    .menu-item:hover {
+      color: #3ab87d;
+      transition: 3ms ease-in;
+    }
+
+    .services-container {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .services-container h1,
+    .portfolio-h1 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 50px;
+    }
+
+    .work {
+      width: 80%;
+      margin: 50px auto;
+      padding: 4px 20px;
+      line-height: 1.5;
+    }
+
+    .work h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .work .rol-title {
+      color: gray;
+      margin-bottom: 5px;
+    }
+
+    .work p {
+      line-height: 25px;
+      text-align: justify;
+    }
+
+    .portfolio-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portfolio-row {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f1f1f1da;
+      border-radius: 10px;
+    }
+
+    .portfolio-row img {
+      width: 100px;
+      margin-right: 20px;
+    }
+
+    .portfolio-row h3 {
+      margin-bottom: 8px;
+    }
+
+    .portfolio-row .stacks {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .project-desc {
+      width: 100%;
+    }
+
+    .portfolio-row .stacks p {
+      margin: 5px;
+      background-color: #3ab87d;
+      color: #fff2ff;
+      padding: 5px 10px;
+      border-radius: 50px;
+    }
+
+    footer {
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background-color: #262931da;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-wrapper {
+      padding: 1em;
+    }
+
+    .contact-form {
+      background-color: #301befda;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 1em;
+    }
+
+    .contact-form form label {
+      display: block;
+      color: #d4dada;
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+      width: 100%;
+      padding: 0.5em;
+      border: none;
+      outline: 0;
+      color: #fff2ff;
+      background: none;
+      border-bottom: 2px solid #d4dada;
+    }
+
+    .contact-form form button {
+      background-color: #d4dada;
+      border: 0;
+      text-transform: uppercase;
+      padding: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: black;
+      transition: background-color 0.5s ease-out;
+    }
+
+    .contact-form form button:hover {
+      background: #060717;
+      color: #fff;
+    }
+
+    .contact-info h4,
+    .contact-info ul,
+    .contact-info p {
+      margin: 1em 0;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-info ul li {
+      margin: 0.5em 0;
+    }
+
+    @media (max-width: 992px) {
+      .navbar {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .menu-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .portfolio-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .portfolio-row img {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .portfolio-row {
+        padding: 10px;
+      }
+
+      .work {
+        padding: 10px;
+      }
+    }
+
+    
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <h2 class="navbar-title">Francisco Rangel
-        <br>
-        <span>Frontend Developer</span></h2>
+      <h2 class="navbar-title">Francisco Rangel<br><span>Frontend Developer</span></h2>
       <div class="menu-group">
         <a href="#experience" class="menu-item">Experience</a>
         <a href="#projects" class="menu-item">Portfolio</a>
@@ -20,7 +304,7 @@
       </div>
     </nav>
   </header>
-  
+
   <main>
     <div class="presentation-container">
       <div class="container-image">
@@ -31,80 +315,71 @@
           <h2>Hi, I am Francisco | Frontend Developer.</h2>
         </div>
         <div class="info">
-          <p>Hi, I am a frontend developer with +4 years of experience and a strong background in Javascript/Typescript, HTML, CSS, Vue.js, and React. I also possess advanced skills in technologies such as NestJs, Python, Java, MySQL, MongoDB, Flutter, and Docker.
-          </p>
+          <p>Hi, I am a frontend developer with +4 years of experience and a strong background in Javascript/Typescript, HTML, CSS, Vue.js, and React. I also possess advanced skills in technologies such as NestJs, Python, Java, MySQL, MongoDB, Flutter, and Docker.</p>
         </div>
-       <section id="media-links">
-        <a href="#"> <i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="#"> <i class="fab fa-github"></i> Github</a>
-       </section>
+        <section id="media-links">
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-github"></i> Github</a>
+        </section>
       </section>
     </div>
-    
+
     <section id="experience" class="services-container">
       <h1>Experience</h1>
-
       <section class="work">
         <h2 class="work-title">Infracommerce</h2>
         <p class="rol-title">Frontend Developer</p>
         <p class="rol-title">11/2022 - 08/2023</p>
         <p>Using React with TypeScript, VTEX IO, and CSS3 for the creation of e-commerce sites such as Vans, Levi’s, Docker’s, etc. Task management in each project using SCRUM and KANBAN methodologies in Jira. Implementation of Azure DevOps in the cloud.</p>
       </section>
-
       <section class="work">
         <h2 class="work-title">S2G Energy</h2>
         <p class="rol-title">Frontend Developer</p>
         <p class="rol-title">02/2022 - 09/2022</p>
         <p>Using React for UI creation with the ant-design CSS framework, SCRUM for task management in Jira, and Azure DevOps in the cloud. In the backend, employing Django for API creation. Developing product software for large enterprises, assisting them in effectively managing their resources.</p>
       </section>
-
       <section class="work">
         <h2 class="work-title">Tapp/Social Standard</h2>
         <p class="rol-title">Mobile Developer</p>
         <p class="rol-title">03/2020 - 02/2022</p>
         <p>Frontend Mobile Team Leader, leveraging the Flutter SDK to create various apps with Firebase services. Employing Node.js for backend development, managing tasks with ClickUp, and deploying apps to iOS and Android stores.</p>
       </section>
-
       <section class="work">
         <h2 class="work-title">Freelancer</h2>
         <p class="rol-title">Fullstack Developer</p>
         <p class="rol-title">06/2019 - Acctually</p>
-        <p>Creating web applications independently using technologies such as PHP (Laravel), React.js, Node.js, Express, Firebase, and MongoDB. As an independent software developer, I have learned a great deal and experienced substantial professional growth.Creating web applications independently using technologies such as PHP (Laravel), React.js, Node.js, Express, Firebase, and MongoDB. As an independent software developer, I have learned a great deal and experienced substantial professional growth.</p>
+        <p>Creating web applications independently using technologies such as PHP (Laravel), React.js, Node.js, Express, Firebase, and MongoDB. As an independent software developer, I have learned a great deal and experienced substantial professional growth.</p>
       </section>
     </section>
 
     <h1 class="portfolio-h1">Portfolio</h1>
     <section id="projects" class="portfolio-container">
-
       <div class="portfolio-row">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" alt="vue">
-          <div>
-            <h3>PETMATCH</h3>
-            <p class="project-desc">This project was developed using the stack detailed below. Its overarching purpose is to assist stray pets and animals in finding new owners, veterinary care, and, ultimately, a better life for each and every one of them.</p>
-            <div class="stacks">
-              <p>stack</p>
-              <p>stack</p>
-              <p>stack</p>
-            </div>
+        <div>
+          <h3>PETMATCH</h3>
+          <p class="project-desc">This project was developed using the stack detailed below. Its overarching purpose is to assist stray pets and animals in finding new owners, veterinary care, and, ultimately, a better life for each and every one of them.</p>
+          <div class="stacks">
+            <p>stack</p>
+            <p>stack</p>
           </div>
+        </div>
       </div>
-
       <div class="portfolio-row">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" alt="vue">
-          <div>
-            <h3>PETMATCH</h3>
-            <p class="project-desc">This project was developed using the stack detailed below. Its overarching purpose is to assist stray pets and animals in finding new owners, veterinary care, and, ultimately, a better life for each and every one of them.</p>
-            <div class="stacks">
-              <p>stack</p>
-              <p>stack</p>
-              <p>stack</p>
-            </div>
+        <div>
+          <h3>PETMATCH</h3>
+          <p class="project-desc">This project was developed using the stack detailed below. Its overarching purpose is to assist stray pets and animals in finding new owners, veterinary care, and, ultimately, a better life for each and every one of them.</p>
+          <div class="stacks">
+            <p>VueJs</p>
+            <p>MongoDB</p>
+            <p>Tailwind</p>
           </div>
+        </div>
       </div>
-
     </section>
   </main>
-  
+
   <footer>
     <div class="contact-wrapper animate bounceInUp">
       <div class="contact-form">
@@ -115,7 +390,7 @@
           </p>
           <p>
             <label>Email Address</label>
-            <input type="text">
+            <input type="email">
           </p>
           <p>
             <label>Subject</label>
@@ -124,21 +399,20 @@
           <p>
             <label>Phone</label>
             <input type="tel">
-            <p class="block">
-              <label>Message</label>
-              <textarea rows="4"></textarea>
-            </p>
-            <p class="block">
-              <button>Send</button>
-            </p>
+          </p>
+          <p class="block">
+            <label>Message</label>
+            <textarea rows="4"></textarea>
+          </p>
+          <p class="block">
+            <button type="submit">Send</button>
           </p>
         </form>
       </div>
-
       <div class="contact-info">
         <h4>My information</h4>
         <ul>
-          <li><i class="fas fa-map-maker-alt"></i> El Saladillo</li>
+          <li><i class="fas fa-map-marker-alt"></i> El Saladillo</li>
           <li><i class="fas fa-phone"></i> +52 (4922106253)</li>
           <li><i class="fas fa-envelope-open-text"></i> frangel@bruce.com</li>
         </ul>
